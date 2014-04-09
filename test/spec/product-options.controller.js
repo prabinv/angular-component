@@ -1,16 +1,16 @@
 ﻿'use strict';
 
 // ReSharper disable WrongExpressionStatement
-describe('Controller: DemoCtrl', function() {
+describe('Controller: ProductOptionsCtrl', function() {
 
-  beforeEach(module('demo'));
+  beforeEach(module('vn.productOptions'));
 
   var controller;
   var scope;
 
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
-    controller = $controller('DemoCtrl', {
+    controller = $controller('ProductOptionsCtrl', {
       $scope: scope
     });
   }));

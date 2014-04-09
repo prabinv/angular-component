@@ -1,10 +1,10 @@
 {
-  "name": "demo",
+  "name": "vn.productOptions",
   "subdomain": "volusion",
   "publishConfig": {
     "registry": "http://volusion.registry.nodejitsu.com/"
   },
-  "version": "0.0.0",
+  "version": "0.0.4",
   "description": "Component for the AngularJS framework",
   "main": "src/index.js",
   "scripts": {
