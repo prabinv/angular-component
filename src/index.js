@@ -3,9 +3,8 @@
 
 var angular = require('angular');
 
-module.exports = angular.module('demo', [])
+module.exports = angular.module('vn.labeledSelect', [])
   .run(function($templateCache) {
-    $templateCache.put('demo.html', require('./demo.html'));
+    $templateCache.put('labeled-select.html', require('./labeled-select.html'));
   })
-  .directive('demo', require('./demo.directive.js'))
-  .controller('DemoCtrl', require('./demo.controller.js'));
+  .directive('vnLabeledSelect', require('./labeled-select.directive.js'));
