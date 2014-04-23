@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "vn-labeled-select",
   "subdomain": "volusion",
   "publishConfig": {
     "registry": "http://volusion.registry.nodejitsu.com/"
