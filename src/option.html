@@ -1,0 +1,17 @@
+﻿<div class="vn-option">
+
+  <label class="vn-option__label" data-ng-if="option.label">
+    {{option.label}}
+  </label>
+
+  <div data-ng-repeat="displayType in option.displayTypes">
+    <div class="vn-option__group vn-option__group--{{displayType.type}}"
+      data-ng-include=" displayType.type + '.html' ">
+    </div>
+  </div>
+
+  <div data-ng-repeat="option in option.options"
+    data-ng-include=" 'option.html' ">
+  </div>
+
+</div>
