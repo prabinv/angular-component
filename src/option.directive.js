@@ -13,6 +13,15 @@ module.exports = [
         option: '=',
         items: '=',
         ngModel: '='
+      },
+      compile: function() {
+        return {
+          pre: function(scope, iElement, iAttrs) {
+            if (iAttrs.modifier) {
+              iElement.addClass('vn-option--' + iAttrs.modifier);
+            }
+          }
+        };
       }
     };
   }

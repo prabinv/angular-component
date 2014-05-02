@@ -35,15 +35,34 @@ describe('Directive: vnOption', function() {
     return $scope;
   }
 
-  function createScopeOption(props) {
+  function createScopeOption(option) {
+    return createScope({
+      option: option
+    });
+  }
+
+  function createScope(props) {
     var $scope = $rootScope.$new();
-    $scope.option = props || {};
-    return $scope;
+    return angular.extend($scope, props);
   }
 
   it('replaces content with a vn-option block', function() {
     var $component = compile();
     expect($component).to.have.class('vn-option');
+  });
+
+  it('adds a modifier class when data-modifier is provided', function() {
+    var $component = compile();
+    expect($component).not.to.have.class('vn-option--');
+    $component = compile({
+      scope: createScope({
+        foo: 'bar'
+      }),
+      extend: function($elem) {
+        return $elem.attr('data-modifier', '{{foo}}');
+      }
+    });
+    expect($component).to.have.class('vn-option--bar');
   });
 
   it('generates a label', function() {
