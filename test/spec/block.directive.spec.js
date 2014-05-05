@@ -17,23 +17,21 @@ describe('Directive: vn-block', function() {
   }));
 
   it('adds a .block class when vn-block attribute is provided', function() {
-    var $div = angular.element('<div/>').attr('data-vn-block', 'foo');
-    var $component = $compile($div)($rootScope.$new());
-    expect($component).to.have.class('foo');
+    var $foo = bem.block('foo');
+    var $block = $compile($foo)($rootScope.$new());
+    expect($block).to.have.class('foo');
   });
 
   it('supports .block--modifier scenario', function() {
-    var $div = angular.element('<div/>')
-      .attr('data-vn-block', 'foo')
-      .attr('data-vn-modifier', 'bar');
-    var $component = $compile($div)($rootScope.$new());
-    expect($component).to.have.class('foo');
-    expect($component).to.have.class('foo--bar');
+    var $foo = bem.block('foo', 'bar');
+    var $block = $compile($foo)($rootScope.$new());
+    expect($block).to.have.class('foo');
+    expect($block).to.have.class('foo--bar');
 
-    $div.attr('data-vn-modifier', '');
-    $component = $compile($div)($rootScope.$new());
-    expect($component).to.have.class('foo');
-    expect($component).not.to.have.class('foo--');
+    $foo.attr('data-vn-modifier', '');
+    $block = $compile($foo)($rootScope.$new());
+    expect($block).to.have.class('foo');
+    expect($block).not.to.have.class('foo--');
   });
 
 });
