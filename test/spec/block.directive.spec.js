@@ -22,13 +22,14 @@ describe('Directive: vn-block', function() {
     expect($block).to.have.class('foo');
   });
 
-  it('supports .block--modifier scenario', function() {
-    var $foo = bem.block('foo', 'bar');
+  it('adds multiple .block--modifier classes when vn-modifiers exist', function() {
+    var $foo = bem.block('foo', 'bar baz');
     var $block = $compile($foo)($rootScope.$new());
     expect($block).to.have.class('foo');
     expect($block).to.have.class('foo--bar');
+    expect($block).to.have.class('foo--baz');
 
-    $foo.attr('data-vn-modifier', '');
+    $foo.attr('data-vn-modifiers', '');
     $block = $compile($foo)($rootScope.$new());
     expect($block).to.have.class('foo');
     expect($block).not.to.have.class('foo--');
