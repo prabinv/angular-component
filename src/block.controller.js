@@ -5,12 +5,8 @@ module.exports = [
   function(
     $scope) {
 
-    this.getBlockName = function() {
+    this.getBlock = function() {
       return $scope.vnBlock;
-    };
-
-    this.getModifierName = function() {
-      return $scope.vnModifier || '';
     };
 
   }

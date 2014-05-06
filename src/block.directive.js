@@ -1,22 +1,19 @@
 ﻿'use strict';
 
 module.exports = [
-  function() {
+  'bem',
+  function(bem) {
     return {
       restrict: 'A',
       controller: 'BlockCtrl',
       scope: {
-        vnBlock: '@',
-        vnModifier: '@'
+        vnBlock: '@'
       },
       compile: function(tElement, tAttrs) {
-        var block = tAttrs.vnBlock || '';
-        tElement.addClass(block);
-
-        var modifier = tAttrs.vnModifier || '';
-        if (modifier) {
-          tElement.addClass(block + '--' + modifier);
-        }
+        bem.addClasses(tElement, {
+          block: tAttrs.vnBlock,
+          modifiers: tAttrs.vnModifiers
+        });
       }
     };
   }

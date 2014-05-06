@@ -2,9 +2,9 @@
 
 window.bem = (function() {
 
-  function createElement(dataAttrs, modifier) {
+  function createElement(dataAttrs, modifiers) {
     dataAttrs = dataAttrs || {};
-    dataAttrs['vn-modifier'] = modifier || '';
+    dataAttrs['vn-modifiers'] = modifiers || '';
     var $elem = angular.element('<div/>');
     Object.keys(dataAttrs).forEach(function(key) {
       $elem.attr('data-' + key, dataAttrs[key]);
@@ -13,11 +13,11 @@ window.bem = (function() {
   }
 
   return {
-    block: function(name, modifier) {
-      return createElement({ 'vn-block': name }, modifier);
+    block: function(name, modifiers) {
+      return createElement({ 'vn-block': name }, modifiers);
     },
-    element: function(name, modifier) {
-      return createElement({ 'vn-element': name }, modifier);
+    element: function(name, modifiers) {
+      return createElement({ 'vn-element': name }, modifiers);
     }
   };
 

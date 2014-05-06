@@ -24,20 +24,11 @@ describe('Controller: BlockCtrl', function() {
 
   it('returns block name when getBlockName() is called', function() {
     var controller = getController();
-    expect(controller.getBlockName()).to.be.empty;
+    expect(controller.getBlock()).to.be.empty;
     controller = getController({
       vnBlock: 'foo'
     });
-    expect(controller.getBlockName()).to.eq('foo');
-  });
-
-  it('returns modifier name when getModifierName() is called', function() {
-    var controller = getController();
-    expect(controller.getModifierName()).to.be.empty;
-    controller = getController({
-      vnModifier: 'foo'
-    });
-    expect(controller.getModifierName()).to.eq('foo');
+    expect(controller.getBlock()).to.eq('foo');
   });
 
 });
