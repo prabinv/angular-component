@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "vn-labeled-radio": "0.0.3"
+    "vn-labeled-radio": "0.0.3",
+    "vn-bem": "0.0.1"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,11 +1,12 @@
-﻿<div class="vn-option">
+﻿<div data-vn-block="vn-option">
 
-  <label class="vn-option__label" data-ng-if="option.label">
+  <label data-vn-element="label" data-ng-if="option.label">
     {{option.label}}
   </label>
 
   <div data-ng-repeat="displayType in option.displayTypes">
-    <div class="vn-option__group vn-option__group--{{displayType.type}}"
+    <div data-vn-element="group"
+      data-vn-modifiers="{{displayType.type}}"
       data-ng-include=" displayType.type + '.html' ">
     </div>
   </div>
