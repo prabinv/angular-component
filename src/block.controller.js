@@ -1,16 +1,14 @@
 ﻿'use strict';
 
 module.exports = [
-  '$scope',
-  function(
-    $scope) {
+  function() {
 
     this.getBlock = function() {
-      return $scope.vnBlock;
+      return this.block;
     };
 
     this.getModifiers = function() {
-      return $scope.vnModifiers;
+      return this.modifiers;
     };
 
   }

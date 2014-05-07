@@ -15,28 +15,23 @@ describe('Controller: BlockCtrl', function() {
     $rootScope = _$rootScope_;
   }));
 
-  function getController(scope) {
-    var $scope = $rootScope.$new();
+  function getController() {
     return $controller('BlockCtrl', {
-      $scope: angular.extend($scope, scope)
+      $scope: $rootScope.$new()
     });
   }
 
   it('returns block name when getBlock() is called', function() {
     var controller = getController();
-    expect(controller.getBlock()).to.be.empty;
-    controller = getController({
-      vnBlock: 'foo'
-    });
+    expect(controller.getBlock()).to.be.undefined;
+    controller.block = 'foo';
     expect(controller.getBlock()).to.eq('foo');
   });
 
   it('returns modifiers name when getModifiers() is called', function() {
     var controller = getController();
-    expect(controller.getBlock()).to.be.empty;
-    controller = getController({
-      vnModifiers: 'foo bar'
-    });
+    expect(controller.getBlock()).to.be.undefined;
+    controller.modifiers = 'foo bar';
     expect(controller.getModifiers()).to.eq('foo bar');
   });
 
