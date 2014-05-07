@@ -3,7 +3,7 @@
 // ReSharper disable WrongExpressionStatement
 describe('Controller: BlockCtrl', function() {
 
-  beforeEach(module('vn.bem'));
+  beforeEach(module('vn-bem'));
 
   var $controller;
   var $rootScope;

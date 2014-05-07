@@ -4,7 +4,7 @@
 describe('Directive: vn-block', function() {
 
   // load the directive's module
-  beforeEach(module('vn.bem'));
+  beforeEach(module('vn-bem'));
 
   var $rootScope;
   var $compile;

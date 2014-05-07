@@ -4,7 +4,7 @@
 describe('Directive: vn-element', function() {
 
   // load the directive's module
-  beforeEach(module('vn.bem'));
+  beforeEach(module('vn-bem'));
 
   var $rootScope;
   var $compile;
