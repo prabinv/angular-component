@@ -7,12 +7,13 @@ module.exports = [
       restrict: 'A',
       controller: 'BlockCtrl',
       scope: {
-        vnBlock: '@'
+        vnBlock: '@',
+        vnModifiers: '@'
       },
       compile: function(tElement, tAttrs) {
         bem.addClasses(tElement, {
           block: tAttrs.vnBlock,
-          modifiers: tAttrs.vnModifiers
+          blockModifiers: tAttrs.vnModifiers
         });
       }
     };

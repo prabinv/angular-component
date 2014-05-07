@@ -40,14 +40,44 @@ describe('Directive: vn-element', function() {
     expect($element).to.have.class('foo__bar--baz');
   });
 
-  it('does not add .block--modifier__element class', function() {
+  it('supports .block--modifier__element scenario', function() {
     var $foo = bem.block('foo', 'bar').append(bem.element('baz'));
     var $block = $compile($foo)($rootScope.$new());
     expect($block).to.have.class('foo');
     expect($block).to.have.class('foo--bar');
     var $element = $block.children().first();
     expect($element).to.have.class('foo__baz');
-    expect($element).not.to.have.class('foo--bar__baz');
+    expect($element).to.have.class('foo--bar__baz');
+  });
+
+  it('supports .block--modifier__element--modifier scenarios', function() {
+    var $foo = bem.block('foo', 'bar baz')
+      .append(bem.element('FOO', 'BAR BAZ'));
+    var $block = $compile($foo)($rootScope.$new());
+    expect($block).to.have.class('foo');
+    expect($block).to.have.class('foo--bar');
+    expect($block).to.have.class('foo--baz');
+    var $element = $block.children().first();
+    expect($element).to.have.class('foo__FOO');
+    expect($element).to.have.class('foo--bar__FOO');
+    expect($element).to.have.class('foo--baz__FOO');
+    expect($element).to.have.class('foo--bar__FOO--BAR');
+    expect($element).to.have.class('foo--baz__FOO--BAZ');
+  });
+
+  it('adds trimmed classes only', function() {
+    var $foo = bem.block('  foo  ', '  bar  baz  ')
+      .append(bem.element('  FOO  ', '  BAR  BAZ  '));
+    var $block = $compile($foo)($rootScope.$new());
+    expect($block).to.have.class('foo');
+    expect($block).to.have.class('foo--bar');
+    expect($block).to.have.class('foo--baz');
+    var $element = $block.children().first();
+    expect($element).to.have.class('foo__FOO');
+    expect($element).to.have.class('foo--bar__FOO');
+    expect($element).to.have.class('foo--baz__FOO');
+    expect($element).to.have.class('foo--bar__FOO--BAR');
+    expect($element).to.have.class('foo--baz__FOO--BAZ');
   });
 
 });

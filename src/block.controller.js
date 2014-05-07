@@ -9,5 +9,9 @@ module.exports = [
       return $scope.vnBlock;
     };
 
+    this.getModifiers = function() {
+      return $scope.vnModifiers;
+    };
+
   }
 ];

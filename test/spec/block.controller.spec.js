@@ -22,13 +22,22 @@ describe('Controller: BlockCtrl', function() {
     });
   }
 
-  it('returns block name when getBlockName() is called', function() {
+  it('returns block name when getBlock() is called', function() {
     var controller = getController();
     expect(controller.getBlock()).to.be.empty;
     controller = getController({
       vnBlock: 'foo'
     });
     expect(controller.getBlock()).to.eq('foo');
+  });
+
+  it('returns modifiers name when getModifiers() is called', function() {
+    var controller = getController();
+    expect(controller.getBlock()).to.be.empty;
+    controller = getController({
+      vnModifiers: 'foo bar'
+    });
+    expect(controller.getModifiers()).to.eq('foo bar');
   });
 
 });

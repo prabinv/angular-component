@@ -10,8 +10,9 @@ module.exports = [
         return function(scope, iElement, iAttrs, blockCtrl) {
           bem.addClasses(iElement, {
             block: blockCtrl.getBlock(),
+            blockModifiers: blockCtrl.getModifiers(),
             element: iAttrs.vnElement,
-            modifiers: iAttrs.vnModifiers
+            elementModifiers: iAttrs.vnModifiers
           });
         };
       }
