@@ -6,15 +6,15 @@ module.exports = [
     return {
       restrict: 'A',
       controller: 'BlockCtrl',
-      compile: function(tElement, tAttrs) {
-        var block = tAttrs.vnBlock;
-        var modifiers = tAttrs.vnModifiers;
-        bem.addClasses(tElement, {
-          block: block,
-          blockModifiers: modifiers
-        });
+      compile: function() {
         return {
           pre: function(scope, iElement, iAttrs, controller) {
+            var block = iAttrs.vnBlock;
+            var modifiers = iAttrs.vnModifiers;
+            bem.addClasses(iElement, {
+              block: block,
+              blockModifiers: modifiers
+            });
             controller.block = block;
             controller.modifiers = modifiers;
           }

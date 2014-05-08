@@ -31,6 +31,19 @@ describe('Directive: vn-element', function() {
     expect($element).not.to.have.class('foo__');
   });
 
+  it('parses handlebars expressions', function() {
+    var $bar = bem.element('{{bar}}', '{{qux}}');
+    var $foo = bem.block('foo').append($bar);
+    var $scope = $rootScope.$new();
+    $scope.bar = 'baz';
+    $scope.qux = 'thud';
+    var $block = $compile($foo)($scope);
+    expect($block).to.have.class('foo');
+    var $element = $block.children().first();
+    expect($element).to.have.class('foo__baz');
+    expect($element).to.have.class('foo__baz--thud');
+  });
+
   it('supports .block__element--modifier scenario', function() {
     var $foo = bem.block('foo').append(bem.element('bar', 'baz'));
     var $block = $compile($foo)($rootScope.$new());

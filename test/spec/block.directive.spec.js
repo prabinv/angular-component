@@ -35,4 +35,15 @@ describe('Directive: vn-block', function() {
     expect($block).not.to.have.class('foo--');
   });
 
+  it('parses handlebars expressions', function() {
+    var $foo = bem.block('{{foo}}', '{{bar}} thud');
+    var $scope = $rootScope.$new();
+    $scope.foo = 'baz';
+    $scope.bar = 'qux';
+    var $block = $compile($foo)($scope);
+    expect($block).to.have.class('baz');
+    expect($block).to.have.class('baz--qux');
+    expect($block).to.have.class('baz--thud');
+  });
+
 });
