@@ -114,12 +114,12 @@ describe('Directive: vnOption', function() {
 
     it('generates labeled radios', function() {
 
-      var $labeledRadios = $component.find('.vn-option__group--radios .labeled-radio');
+      var $labeledRadios = $component.find('.vn-option__group--radios .vn-labeled-radio');
 
       function testLabeledRadio($labeledRadio, fixture) {
-        var $radio = $labeledRadio.find('.labeled-radio__input');
-        var $label = $labeledRadio.find('.labeled-radio__label');
-        var $image = $labeledRadio.find('.labeled-radio__image');
+        var $radio = $labeledRadio.find('.vn-labeled-radio__input');
+        var $label = $labeledRadio.find('.vn-labeled-radio__label');
+        var $image = $labeledRadio.find('.vn-labeled-radio__image');
         expect($labeledRadio).to.have.attr('name', 'option1');
         expect($labeledRadio).to.have.css('background-color', fixture.backgroundColor);
         expect($radio).to.have.value(fixture.value);
