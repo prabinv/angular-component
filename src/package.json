@@ -1,17 +1,9 @@
 {
   "name": "components",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
   "private": true,
   "dependencies": {
     "vn-labeled-radio": "0.0.3",
     "vn-bem": "0.0.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "None"
+  }
 }
