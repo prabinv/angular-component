@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "vn-labeled-radio": "0.0.3",
-    "vn-bem": "0.0.1"
+    "vn-bem": "0.0.3",
+    "vn-labeled-radio": "0.0.6"
   }
 }
