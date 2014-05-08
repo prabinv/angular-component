@@ -51,20 +51,6 @@ describe('Directive: vnOption', function() {
     expect($component).to.have.class('vn-option');
   });
 
-  it('adds a modifier class when data-modifier is provided', function() {
-    var $component = compile();
-    expect($component).not.to.have.class('vn-option--');
-    $component = compile({
-      scope: createScope({
-        foo: 'bar'
-      }),
-      extend: function($elem) {
-        return $elem.attr('data-modifier', '{{foo}}');
-      }
-    });
-    expect($component).to.have.class('vn-option--bar');
-  });
-
   it('generates a label', function() {
     var $component = compile({
       scope: createScopeOption({
