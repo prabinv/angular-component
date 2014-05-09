@@ -91,6 +91,7 @@ describe('Directive: vnOption', function() {
         scope: $scope,
         extend: function($elem) {
           return $elem
+            .attr('data-vn-modifiers', 'color')
             .attr('data-display-types', 'option.displayTypes')
             .attr('data-items', 'option.items')
             .attr('data-ng-model', 'selected.item');
@@ -106,8 +107,10 @@ describe('Directive: vnOption', function() {
         var $radio = $labeledRadio.find('.vn-labeled-radio__input');
         var $label = $labeledRadio.find('.vn-labeled-radio__label');
         var $image = $labeledRadio.find('.vn-labeled-radio__image');
+        expect($labeledRadio).to.have.class('vn-labeled-radio--color');
         expect($labeledRadio).to.have.attr('name', 'option1');
         expect($labeledRadio).to.have.css('background-color', fixture.backgroundColor);
+        expect($radio).to.have.class('vn-labeled-radio--color__input');
         expect($radio).to.have.value(fixture.value);
         expect($image).to.have.attr('src', fixture.image);
         expect($label).to.have.text(fixture.text);
@@ -132,6 +135,7 @@ describe('Directive: vnOption', function() {
 
       it('generates a select box', function() {
         var $select = $component.find('.vn-option__group--select select');
+        expect($select).to.have.class('vn-option--color__select');
         expect($select).to.have.attr('name', 'option1');
 
         var $options = $select.children('option');

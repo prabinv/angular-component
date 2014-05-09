@@ -7,6 +7,7 @@ module.exports = [
       replace: true,
       templateUrl: 'option.html',
       scope: {
+        vnModifiers: '@',
         label: '@',
         name: '@',
         displayTypes: '=',
