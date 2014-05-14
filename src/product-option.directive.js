@@ -13,7 +13,7 @@ module.exports = [
         displayTypes: '=',
         option: '=',
         items: '=',
-        ngModel: '='
+        change: '&ngChange'
       }
     };
   }

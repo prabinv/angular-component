@@ -2,8 +2,9 @@
   data-vn-modifiers="{{vnModifiers}}"
   name="{{option.name}}"
   data-ng-value="item"
-  data-ng-model="ngModel"
+  data-ng-model="option.selected"
   data-ng-repeat="item in items"
+  data-ng-change="change()"
   style="background-color: {{item.color}}">
   <img data-vn-element="image" src="{{item.image}}" alt="">
   <span data-vn-element="text">{{item.text}}</span>

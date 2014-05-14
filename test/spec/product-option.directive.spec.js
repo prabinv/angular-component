@@ -86,7 +86,8 @@ describe('Directive: vnProductOption', function() {
           }
         ]
       });
-      $scope.selected = { item: $scope.option.items[1] };
+      $scope.option.selected = $scope.option.items[1];
+      $scope.change = sinon.spy();
       $component = compile({
         scope: $scope,
         extend: function($elem) {
@@ -94,7 +95,8 @@ describe('Directive: vnProductOption', function() {
             .attr('data-vn-modifiers', 'color')
             .attr('data-display-types', 'option.displayTypes')
             .attr('data-items', 'option.items')
-            .attr('data-ng-model', 'selected.item');
+            .attr('data-ng-model', 'selected.item')
+            .attr('data-ng-change', 'change()');
         }
       });
     });
@@ -113,6 +115,13 @@ describe('Directive: vnProductOption', function() {
         expect($radio).to.have.class('vn-labeled-radio--color__input');
         expect($image).to.have.attr('src', expected.image);
         expect($text).to.have.text(expected.text);
+        expect($radio).not.to.be.checked;
+        expect($scope.change).not.to.have.been.called;
+        $radio.get(0).click();
+        expect($radio).to.be.checked;
+        expect($scope.change).to.have.been.calledOnce;
+        expect($scope.option.selected).to.deep.equal(expected);
+        $scope.change.reset();
       }
 
       testLabeledRadio($labeledRadios.first(), $scope.option.items[0]);
