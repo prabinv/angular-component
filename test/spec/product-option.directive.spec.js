@@ -75,13 +75,13 @@ describe('Directive: vnProductOption', function() {
           {
             text: 'fooText',
             value: 'fooValue',
-            color: '#f00;',
+            color: 'rgb(1, 2, 3);',
             image: 'data:image/jpeg;base64,foo'
           },
           {
             text: 'barText',
             value: 'barValue',
-            color: '#b00',
+            color: 'rgb(4, 5, 6);',
             image: 'data:image/jpeg;base64,bar'
           }
         ]
@@ -103,32 +103,21 @@ describe('Directive: vnProductOption', function() {
 
       var $labeledRadios = $component.find('.vn-product-option__group--radios .vn-labeled-radio');
 
-      function testLabeledRadio($labeledRadio, fixture) {
+      function testLabeledRadio($labeledRadio, expected) {
         var $radio = $labeledRadio.find('.vn-labeled-radio__input');
         var $text = $labeledRadio.find('.vn-labeled-radio__text');
         var $image = $labeledRadio.find('.vn-labeled-radio__image');
         expect($labeledRadio).to.have.class('vn-labeled-radio--color');
         expect($labeledRadio).to.have.attr('name', 'option1');
-        expect($labeledRadio).to.have.css('background-color', fixture.backgroundColor);
+        expect($labeledRadio).to.have.css('background-color', expected.backgroundColor);
         expect($radio).to.have.class('vn-labeled-radio--color__input');
-        expect($radio).to.have.value(fixture.value);
-        expect($image).to.have.attr('src', fixture.image);
-        expect($text).to.have.text(fixture.text);
+        expect($radio).to.have.value(expected.value);
+        expect($image).to.have.attr('src', expected.image);
+        expect($text).to.have.text(expected.text);
       }
 
-      testLabeledRadio($labeledRadios.first(), {
-        text: 'fooText',
-        value: 'fooValue',
-        backgroundColor: 'rgb(255, 0, 0)',
-        image: 'data:image/jpeg;base64,foo'
-      });
-
-      testLabeledRadio($labeledRadios.last(), {
-        text: 'barText',
-        value: 'barValue',
-        backgroundColor: 'rgb(187, 0, 0)',
-        image: 'data:image/jpeg;base64,bar'
-      });
+      testLabeledRadio($labeledRadios.first(), $scope.option.items[0]);
+      testLabeledRadio($labeledRadios.last(), $scope.option.items[1]);
     });
 
     describe('select box', function() {
