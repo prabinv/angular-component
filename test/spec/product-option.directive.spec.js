@@ -111,7 +111,6 @@ describe('Directive: vnProductOption', function() {
         expect($labeledRadio).to.have.attr('name', 'option1');
         expect($labeledRadio).to.have.css('background-color', expected.backgroundColor);
         expect($radio).to.have.class('vn-labeled-radio--color__input');
-        expect($radio).to.have.value(expected.value);
         expect($image).to.have.attr('src', expected.image);
         expect($text).to.have.text(expected.text);
       }
