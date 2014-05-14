@@ -19,9 +19,10 @@ describe('Directive: vnProductOption', function() {
   function compile(options) {
     options = options || {};
     var extend = options.extend || function(elem) { return elem; };
-    var $div = extend(angular.element('<div data-vn-product-option/>')
-      .attr('data-option', 'option')
-      .attr('data-name', '{{name}}'));
+    var $div = extend(angular.element('<div data-vn-product-option/>').attr({
+      'data-option': 'option',
+      'data-name': '{{name}}'
+    }));
     var template = $compile($div);
     var $scope = options.scope || $rootScope.$new();
     var $component = template(addFixtureData($scope));
@@ -91,12 +92,13 @@ describe('Directive: vnProductOption', function() {
       $component = compile({
         scope: $scope,
         extend: function($elem) {
-          return $elem
-            .attr('data-vn-modifiers', 'color')
-            .attr('data-display-types', 'option.displayTypes')
-            .attr('data-items', 'option.items')
-            .attr('data-ng-model', 'selected.item')
-            .attr('data-ng-change', 'change()');
+          return $elem.attr({
+            'data-vn-modifiers': 'color',
+            'data-display-types': 'option.displayTypes',
+            'data-items': 'option.items',
+            'data-ng-model': 'selected.item',
+            'data-ng-change': 'change()'
+          });
         }
       });
     });
