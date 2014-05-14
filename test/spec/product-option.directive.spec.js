@@ -105,7 +105,7 @@ describe('Directive: vnProductOption', function() {
 
       function testLabeledRadio($labeledRadio, fixture) {
         var $radio = $labeledRadio.find('.vn-labeled-radio__input');
-        var $label = $labeledRadio.find('.vn-labeled-radio__label');
+        var $text = $labeledRadio.find('.vn-labeled-radio__text');
         var $image = $labeledRadio.find('.vn-labeled-radio__image');
         expect($labeledRadio).to.have.class('vn-labeled-radio--color');
         expect($labeledRadio).to.have.attr('name', 'option1');
@@ -113,7 +113,7 @@ describe('Directive: vnProductOption', function() {
         expect($radio).to.have.class('vn-labeled-radio--color__input');
         expect($radio).to.have.value(fixture.value);
         expect($image).to.have.attr('src', fixture.image);
-        expect($label).to.have.text(fixture.text);
+        expect($text).to.have.text(fixture.text);
       }
 
       testLabeledRadio($labeledRadios.first(), {
