@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "vn-bem": "0.0.3",
-    "vn-labeled-radio": "0.0.8"
+    "vn-labeled-radio": "0.0.10"
   }
 }
