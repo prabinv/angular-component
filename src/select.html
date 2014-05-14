@@ -2,5 +2,6 @@
   name="{{option.name}}"
   data-ng-attr-size="{{displayType.size}}"
   data-ng-model="option.selected"
+  data-ng-change="change()"
   data-ng-options="item.text for item in items">
 </select>

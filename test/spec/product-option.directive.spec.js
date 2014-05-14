@@ -117,10 +117,8 @@ describe('Directive: vnProductOption', function() {
         expect($radio).to.have.class('vn-labeled-radio--color__input');
         expect($image).to.have.attr('src', expected.image);
         expect($text).to.have.text(expected.text);
-        expect($radio).not.to.be.checked;
         expect($scope.change).not.to.have.been.called;
         $radio.get(0).click();
-        expect($radio).to.be.checked;
         expect($scope.change).to.have.been.calledOnce;
         expect($scope.option.selected).to.deep.equal(expected);
         $scope.change.reset();
@@ -132,8 +130,12 @@ describe('Directive: vnProductOption', function() {
 
     describe('select box', function() {
 
+      var $select;
+      before(function() {
+        $select = $component.find('.vn-product-option__group--select select');
+      });
+
       it('generates a select box', function() {
-        var $select = $component.find('.vn-product-option__group--select select');
         expect($select).to.have.class('vn-product-option--color__select');
         expect($select).to.have.attr('name', 'option1');
 
@@ -158,7 +160,6 @@ describe('Directive: vnProductOption', function() {
       });
 
       it('copies the size attribute into the select box', function() {
-        var $select = $component.find('.vn-product-option__group--select select');
         expect($select).to.have.attr('size', '5');
       });
 
