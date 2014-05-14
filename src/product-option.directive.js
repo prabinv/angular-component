@@ -5,7 +5,7 @@ module.exports = [
     return {
       restrict: 'A',
       replace: true,
-      templateUrl: 'option.html',
+      templateUrl: 'product-option.html',
       scope: {
         vnModifiers: '@',
         label: '@',

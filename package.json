@@ -1,5 +1,5 @@
 {
-  "name": "vn-option",
+  "name": "vn-product-option",
   "subdomain": "volusion",
   "publishConfig": {
     "registry": "http://volusion.registry.nodejitsu.com/"

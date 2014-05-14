@@ -1,10 +1,10 @@
 ﻿'use strict';
 
 // ReSharper disable WrongExpressionStatement
-describe('Directive: vnOption', function() {
+describe('Directive: vnProductOption', function() {
 
   // load the directive's module
-  beforeEach(module('vn.option'));
+  beforeEach(module('vnProductOption'));
 
   var $rootScope;
   var $compile;
@@ -19,7 +19,7 @@ describe('Directive: vnOption', function() {
   function compile(options) {
     options = options || {};
     var extend = options.extend || function(elem) { return elem; };
-    var $div = extend(angular.element('<div data-vn-option/>')
+    var $div = extend(angular.element('<div data-vn-product-option/>')
       .attr('data-option', 'option')
       .attr('data-name', '{{name}}'));
     var template = $compile($div);
@@ -46,9 +46,9 @@ describe('Directive: vnOption', function() {
     return angular.extend($scope, props);
   }
 
-  it('replaces content with a vn-option block', function() {
+  it('replaces content with a vn-product-option block', function() {
     var $component = compile();
-    expect($component).to.have.class('vn-option');
+    expect($component).to.have.class('vn-product-option');
   });
 
   it('generates a label', function() {
@@ -57,7 +57,7 @@ describe('Directive: vnOption', function() {
         label: 'foo'
       })
     });
-    var $label = $component.find('.vn-option__label');
+    var $label = $component.find('.vn-product-option__label');
     expect($label).to.have.text('foo');
   });
 
@@ -101,7 +101,7 @@ describe('Directive: vnOption', function() {
 
     it('generates labeled radios', function() {
 
-      var $labeledRadios = $component.find('.vn-option__group--radios .vn-labeled-radio');
+      var $labeledRadios = $component.find('.vn-product-option__group--radios .vn-labeled-radio');
 
       function testLabeledRadio($labeledRadio, fixture) {
         var $radio = $labeledRadio.find('.vn-labeled-radio__input');
@@ -134,8 +134,8 @@ describe('Directive: vnOption', function() {
     describe('select box', function() {
 
       it('generates a select box', function() {
-        var $select = $component.find('.vn-option__group--select select');
-        expect($select).to.have.class('vn-option--color__select');
+        var $select = $component.find('.vn-product-option__group--select select');
+        expect($select).to.have.class('vn-product-option--color__select');
         expect($select).to.have.attr('name', 'option1');
 
         var $options = $select.children('option');
@@ -159,7 +159,7 @@ describe('Directive: vnOption', function() {
       });
 
       it('copies the size attribute into the select box', function() {
-        var $select = $component.find('.vn-option__group--select select');
+        var $select = $component.find('.vn-product-option__group--select select');
         expect($select).to.have.attr('size', '5');
       });
 
@@ -169,7 +169,7 @@ describe('Directive: vnOption', function() {
 
   it('recursively shows sub-options', function() {
     var $component = compile();
-    expect($component).to.not.have('.vn-option');
+    expect($component).to.not.have('.vn-product-option');
 
     $component = compile({
       scope: createScopeOption({
@@ -180,10 +180,10 @@ describe('Directive: vnOption', function() {
       })
     });
 
-    var $options = $component.find('.vn-option');
+    var $options = $component.find('.vn-product-option');
     expect($options.length).to.be(3);
 
-    var $labels = $component.find('.vn-option__label');
+    var $labels = $component.find('.vn-product-option__label');
     expect($($labels.get(0))).to.have.text('foo');
     expect($($labels.get(1))).to.have.text('bar');
     expect($($labels.get(2))).to.have.text('baz');
