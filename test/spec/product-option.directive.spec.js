@@ -82,8 +82,7 @@ describe('Directive: vnProductOption', function() {
           {
             text: 'barText',
             value: 'barValue',
-            color: 'rgb(4, 5, 6);',
-            image: 'data:image/jpeg;base64,bar'
+            color: 'rgb(4, 5, 6);'
           }
         ]
       });
@@ -108,15 +107,23 @@ describe('Directive: vnProductOption', function() {
       var $labeledRadios = $component.find('.vn-product-option__group--radios .vn-labeled-radio');
 
       function testLabeledRadio($labeledRadio, expected) {
-        var $radio = $labeledRadio.find('.vn-labeled-radio__input');
-        var $text = $labeledRadio.find('.vn-labeled-radio__text');
-        var $image = $labeledRadio.find('.vn-labeled-radio__image');
         expect($labeledRadio).to.have.class('vn-labeled-radio--color');
         expect($labeledRadio).to.have.attr('name', 'option1');
         expect($labeledRadio).to.have.css('background-color', expected.backgroundColor);
+
+        var $radio = $labeledRadio.find('.vn-labeled-radio__input');
         expect($radio).to.have.class('vn-labeled-radio--color__input');
-        expect($image).to.have.attr('src', expected.image);
+
+        var $image = $labeledRadio.find('.vn-labeled-radio__image');
+        if (expected.image) {
+          expect($image).to.have.attr('src', expected.image);
+        } else {
+          expect($image).not.to.exist;
+        }
+
+        var $text = $labeledRadio.find('.vn-labeled-radio__text');
         expect($text).to.have.text(expected.text);
+
         expect($scope.change).not.to.have.been.called;
         $radio.get(0).click();
         expect($scope.change).to.have.been.calledOnce;
