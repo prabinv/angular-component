@@ -3,9 +3,8 @@
 
 var angular = require('angular');
 
-module.exports = angular.module('vn-demo', [])
-  .run(function($templateCache) {
-    $templateCache.put('demo.html', require('./src/demo.html'));
-  })
-  .directive('vnDemo', require('./src/demo.directive'))
-  .controller('DemoCtrl', require('./src/demo.controller'));
+module.exports = angular.module('vn-bem', [])
+  .directive('vnBlock', require('./src/block.directive'))
+  .directive('vnElement', require('./src/element.directive'))
+  .controller('BlockCtrl', require('./src/block.controller'))
+  .factory('bem', require('./src/bem.service'));
